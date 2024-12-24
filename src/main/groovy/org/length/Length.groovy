@@ -5,8 +5,12 @@ class Length {
     private int lengthInMillimeters;
 
     Length(int value, Unit unit) {
+        if (value < 0) {
+            throw new IllegalStateException("Length cannot be negative")
+        }
+
         if (unit == Unit.MM) {
-            lengthInMillimeters =  value
+            lengthInMillimeters = value
         } else if (unit == Unit.M) {
             lengthInMillimeters = value * 1000;
         } else if (unit == Unit.CM) {

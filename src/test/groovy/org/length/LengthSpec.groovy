@@ -8,15 +8,17 @@ import static org.length.Length.Unit.MM
 
 class LengthSpec extends Specification {
 
-    def 'the same length initialized in different units should be equal'() {
+    def 'the same length initialized in different units should be equal\
+to length initialized with meters'() {
+
         expect:
-            new Length(value, unit) == new Length(1, M)
+        new Length(value, unit) == new Length(1, M)
+
         where:
-            value | unit
-            100  | CM
-            1    | M
-            1000 | MM
+        value | unit
+        100   | CM
+        1     | M
+        1000  | MM
     }
 
 }
-
