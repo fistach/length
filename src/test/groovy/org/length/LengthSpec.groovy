@@ -59,4 +59,17 @@ to length initialized with meters'() {
         then:
         sum == new Length(2, M)
     }
+
+    def 'sum of lengths in millimeters cannot be greater than Integer.MAX'() {
+        given:
+        Length length1 = new Length(Integer.MAX_VALUE - 100, MM)
+        Length length2 = new Length(101, MM)
+
+        when:
+        length1 + length2
+
+        then:
+        thrown(IllegalStateException)
+    }
+
 }
