@@ -1,5 +1,7 @@
 package org.length
 
+import static org.length.Length.Unit.MM
+
 class Length {
 
     private int lengthInMillimeters;
@@ -9,7 +11,7 @@ class Length {
             throw new IllegalStateException("Length cannot be negative")
         }
 
-        if (unit == Unit.MM) {
+        if (unit == MM) {
             lengthInMillimeters = value
         } else if (unit == Unit.M) {
             lengthInMillimeters = value * 1000;
@@ -31,6 +33,10 @@ class Length {
 
     int hashCode() {
         return lengthInMillimeters
+    }
+
+    Length plus(Length length) {
+        return new Length(length.lengthInMillimeters + this.lengthInMillimeters, MM)
     }
 
     enum Unit {

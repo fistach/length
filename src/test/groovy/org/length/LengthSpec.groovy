@@ -48,4 +48,15 @@ to length initialized with meters'() {
         567    | M     | 567000 | MM
     }
 
+    def 'sum of lengths should be the length of sum'() {
+        given:
+        Length length1 = new Length(1, M)
+        Length length2 = new Length(1, M)
+
+        when:
+        var sum = length1 + length2
+
+        then:
+        sum == new Length(2, M)
+    }
 }
