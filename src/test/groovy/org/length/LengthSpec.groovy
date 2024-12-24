@@ -8,7 +8,7 @@ import static org.length.Length.Unit.MM
 
 class LengthSpec extends Specification {
 
-    def 'the same length initialized in different units should be equal\
+    def 'the same length initialized in different units should be equal \
 to length initialized with meters'() {
 
         expect:
@@ -23,11 +23,16 @@ to length initialized with meters'() {
 
     def 'length should be non-negative'() {
         when:
-        new Length(-10, CM)
+        new Length(-10, unit)
 
         then:
         def exception = thrown(IllegalStateException)
         exception.message == "Length cannot be negative"
+
+        where:
+        unit << [M,
+                 CM,
+                 MM]
     }
 
     def 'the same length initialized in different units should be equal'() {
@@ -42,6 +47,5 @@ to length initialized with meters'() {
         45     | M     | 4500   | CM
         567    | M     | 567000 | MM
     }
-
 
 }
