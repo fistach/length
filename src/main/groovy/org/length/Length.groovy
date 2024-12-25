@@ -43,5 +43,13 @@ class Length {
         M, CM, MM
     }
 
+    static Length of(int value, Unit unit) {
+        new Length(value, unit)
+    }
+
+    static Length lengthOf(int value, Unit unit) {
+        new Length(value, unit)
+    }
+
 }
 
