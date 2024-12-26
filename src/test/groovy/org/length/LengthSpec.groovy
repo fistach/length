@@ -6,6 +6,7 @@ import static org.length.Length.Unit.CM
 import static org.length.Length.Unit.M
 import static org.length.Length.Unit.M
 import static org.length.Length.Unit.MM
+import static org.length.Length.lengthOf
 
 class LengthSpec extends Specification {
 
@@ -82,5 +83,16 @@ to length initialized with meters'() {
 
         then:
         '12000mm' == string
+    }
+
+    def 'it should be possible to get int value of length in mm'() {
+        given:
+        Length length = lengthOf 5,M
+
+        when:
+        int inMillimeters = length.inMm()
+
+        then:
+        5000 == inMillimeters
     }
 }

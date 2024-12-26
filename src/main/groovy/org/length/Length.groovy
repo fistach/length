@@ -50,6 +50,10 @@ class Length {
         return lengthInMillimeters + 'mm';
     }
 
+    int inMm() {
+        lengthInMillimeters / 1000
+    }
+
     enum Unit {
         M, CM, MM
     }
