@@ -83,11 +83,6 @@
       <artifactId>spock-core</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.spockframework</groupId>
-      <artifactId>spock-junit4</artifactId>
-      <scope>test</scope>
-    </dependency>
     <!-- Optional dependencies for using Spock -->
     <dependency> <!-- use a specific Groovy version rather than the one specified by spock-core -->
       <groupId>org.apache.groovy</groupId>
