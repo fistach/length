@@ -51,7 +51,7 @@ class Length {
     }
 
     int inMm() {
-        lengthInMillimeters / 1000
+        lengthInMillimeters
     }
 
     enum Unit {
