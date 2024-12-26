@@ -2,6 +2,12 @@ package org.length
 
 import static org.length.Length.Unit.MM
 
+/**
+ * A length with a unit, which is a multiple of a millimeter.
+ * It can be used to represent a value of a measurement,
+ * for example 23mm, 12cm or 11m.
+ *
+ */
 class Length {
 
     private int lengthInMillimeters;
