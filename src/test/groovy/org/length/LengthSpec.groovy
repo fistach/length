@@ -29,7 +29,7 @@ to length initialized with meters'() {
 
         then:
         def exception = thrown(IllegalStateException)
-        exception.message == "Length cannot be negative"
+        exception.message == 'Length cannot be negative'
 
         where:
         unit << [M,
@@ -94,5 +94,30 @@ to length initialized with meters'() {
 
         then:
         5000 == inMillimeters
+    }
+
+    def 'it should be possible to subtract shorter length from longer'() {
+        given:
+        Length longer = Length.of(5, M)
+        Length shorter = Length.of(5, MM)
+
+        when:
+        Length difference = longer - shorter
+
+        then:
+        Length.of(4995, MM) == difference
+    }
+
+    def 'it should not be possible to subtract longer length from shorter'() {
+        given:
+        Length longer = Length.of(5, M)
+        Length shorter = Length.of(5, MM)
+
+        when:
+        shorter - longer
+
+        then:
+        def exception = thrown(IllegalStateException)
+        exception.message == 'Length cannot be negative'
     }
 }

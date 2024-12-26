@@ -41,8 +41,12 @@ class Length {
         return lengthInMillimeters
     }
 
-    Length plus(Length length) {
-        return new Length(length.lengthInMillimeters + this.lengthInMillimeters, MM)
+    Length plus(Length other) {
+        return new Length(this.lengthInMillimeters + other.lengthInMillimeters, MM)
+    }
+
+    Length minus(Length other) {
+        return new Length(this.lengthInMillimeters - other.lengthInMillimeters, MM)
     }
 
     @Override
