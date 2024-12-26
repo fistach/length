@@ -45,6 +45,11 @@ class Length {
         return new Length(length.lengthInMillimeters + this.lengthInMillimeters, MM)
     }
 
+    @Override
+    String toString() {
+        return lengthInMillimeters + 'mm';
+    }
+
     enum Unit {
         M, CM, MM
     }
@@ -56,6 +61,7 @@ class Length {
     static Length lengthOf(int value, Unit unit) {
         new Length(value, unit)
     }
+
 
 }
 

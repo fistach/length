@@ -4,6 +4,7 @@ import spock.lang.Specification
 
 import static org.length.Length.Unit.CM
 import static org.length.Length.Unit.M
+import static org.length.Length.Unit.M
 import static org.length.Length.Unit.MM
 
 class LengthSpec extends Specification {
@@ -72,4 +73,14 @@ to length initialized with meters'() {
         thrown(IllegalStateException)
     }
 
+    def 'toString should print the length in mm and it should indicate it'() {
+        given:
+        def length = Length.of(12, M)
+
+        when:
+        String string = length.toString()
+
+        then:
+        '12000mm' == string
+    }
 }
