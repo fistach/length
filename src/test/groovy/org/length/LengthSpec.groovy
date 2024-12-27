@@ -3,7 +3,7 @@ package org.length
 import spock.lang.Specification
 
 import static org.length.Length.Unit.CM
-import static org.length.Length.Unit.M
+import static org.length.Length.Unit.KM
 import static org.length.Length.Unit.M
 import static org.length.Length.Unit.MM
 import static org.length.Length.lengthOf
@@ -32,7 +32,8 @@ to length initialized with meters'() {
         exception.message == 'Length cannot be negative'
 
         where:
-        unit << [M,
+        unit << [KM,
+                 M,
                  CM,
                  MM]
     }
@@ -48,6 +49,7 @@ to length initialized with meters'() {
         983000 | MM    | 98300  | CM
         45     | M     | 4500   | CM
         567    | M     | 567000 | MM
+        1      | KM    | 1000   | M
     }
 
     def 'sum of lengths should be the length of sum'() {
@@ -87,7 +89,7 @@ to length initialized with meters'() {
 
     def 'it should be possible to get int value of length in mm'() {
         given:
-        Length length = lengthOf 5,M
+        Length length = lengthOf 5, M
 
         when:
         int inMillimeters = length.inMm()

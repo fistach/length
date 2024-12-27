@@ -23,6 +23,8 @@ class Length {
             lengthInMillimeters = value * 1000;
         } else if (unit == Unit.CM) {
             lengthInMillimeters = value * 10
+        } else if (unit == Unit.KM) {
+            lengthInMillimeters = value * 1000000
         }
     }
 
@@ -59,7 +61,7 @@ class Length {
     }
 
     enum Unit {
-        M, CM, MM
+        KM, M, CM, MM
     }
 
     static Length of(int value, Unit unit) {
